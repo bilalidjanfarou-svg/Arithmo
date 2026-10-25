@@ -402,3 +402,72 @@ footer {
 }
 
 
+.exercise {
+  max-width: 650px;
+  margin: 30px auto 50px;
+  padding: 30px;
+  background: white;
+  border: 1px solid #e9edf5;
+  border-radius: 18px;
+}
+
+.exercise-header {
+  text-align: center;
+}
+
+.exercise-header h2 {
+  margin: 8px 0;
+  font: 700 25px "Manrope", sans-serif;
+}
+
+.exercise-header p {
+  margin: 0 0 25px;
+  color: #778198;
+  font-size: 14px;
+}
+
+.exercise-question {
+  padding: 25px;
+  background: #f7f7ff;
+  border-radius: 14px;
+}
+
+.exercise-question > span {
+  color: #635bdb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.exercise-question h3 {
+  margin: 14px 0;
+  font: 700 18px "Manrope", sans-serif;
+}
+
+.math-question {
+  margin: 0 0 20px;
+  font: 700 22px "Manrope", sans-serif;
+}
+
+.exercise-question input {
+  margin-bottom: 5px;
+}
+
+.exercise-success,
+.exercise-error {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.exercise-success {
+  background: #edf9f1;
+  color: #21733d;
+}
+
+.exercise-error {
+  background: #fff1f2;
+  color: #a12b36;
+}
+

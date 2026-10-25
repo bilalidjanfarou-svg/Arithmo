@@ -11,7 +11,11 @@ function App() {
   const [chargement, setChargement] = useState(false);
   const [explications, setExplications] = useState([]);
   const [historique, setHistorique] = useState([]);
-  
+  const [reponseExercice, setReponseExercice] = useState("");
+  const [correction, setCorrection] = useState("");
+
+
+
   function expliquerCalcul(a, b, operation, resultat) {
     switch (operation) {
       case "addition":
@@ -274,6 +278,64 @@ function App() {
                   modulo: "%",
                 };
 
+            <section className="exercise">
+                <div className="exercise-header">
+                  <span className="section-label">ENTRAÎNEMENT</span>
+                  <h2>À toi de jouer !</h2>
+                  <p>
+                    Teste tes connaissances avec un petit exercice.
+                  </p>
+                </div>
+
+                <div className="exercise-question">
+                  <span>Exercice 01</span>
+
+                  <h3>
+                    Quel est le reste de la division de 17 par 5 ?
+                  </h3>
+
+                  <p className="math-question">
+                    17 mod 5 = ?
+                  </p>
+
+                  <input
+                    type="number"
+                    value={reponseExercice}
+                    onChange={(e) => {
+                      setReponseExercice(e.target.value);
+                      setCorrection("");
+                    }}
+                    placeholder="Ta réponse"
+                  />
+
+                  <button
+                    className="calculate-button"
+                    type="button"
+                    onClick={verifierExercice}
+                  >
+                    Vérifier ma réponse
+                  </button>
+
+                  {correction === "correct" && (
+                    <div className="exercise-success">
+                      ✅ Bonne réponse ! 17 mod 5 = 2.
+                    </div>
+                  )}
+
+                  {correction === "incorrect" && (
+                    <div className="exercise-error">
+                      ❌ Ce n'est pas la bonne réponse. Essaie encore !
+                    </div>
+                  )}
+
+                  {correction === "Entre d'abord une réponse." && (
+                    <div className="exercise-error">
+                      ⚠️ Entre une réponse avant de vérifier.
+                    </div>
+                  )}
+                </div>
+              </section>
+
                 return (
                   <div className="history-item" key={index}>
                     <div>
@@ -316,9 +378,25 @@ function App() {
 
       <footer>
         <p>Arithmo © 2026 — Les mathématiques à ta portée.</p>
+        <p>@Bilket$</p>
       </footer>
     </div>
   );
+}
+
+function verifierExercice() {
+  const bonneReponse = 17 % 5;
+
+  if (reponseExercice.trim() === "") {
+    setCorrection("Entre d'abord une réponse.");
+    return;
+  }
+
+  if (Number(reponseExercice) === bonneReponse) {
+    setCorrection("correct");
+  } else {
+    setCorrection("incorrect");
+  }
 }
 
 export default App;
