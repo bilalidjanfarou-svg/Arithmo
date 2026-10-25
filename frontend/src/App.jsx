@@ -10,6 +10,65 @@ function App() {
   const [erreur, setErreur] = useState("");
   const [chargement, setChargement] = useState(false);
 
+  
+  function expliquerCalcul(a, b, operation, resultat) {
+    switch (operation) {
+      case "addition":
+        return [
+          `On additionne ${a} et ${b}.`,
+          `${a} + ${b} = ${resultat}`,
+          "On regroupe les deux nombres pour obtenir leur somme.",
+        ];
+
+      case "soustraction":
+        return [
+          `On soustrait ${b} de ${a}.`,
+          `${a} - ${b} = ${resultat}`,
+          "Le résultat est la différence entre les deux nombres.",
+        ];
+
+      case "multiplication":
+        return [
+          `On multiplie ${a} par ${b}.`,
+          `${a} × ${b} = ${resultat}`,
+          "La multiplication correspond à une addition répétée lorsque les nombres sont entiers positifs.",
+        ];
+
+      case "division":
+        return [
+          `On divise ${a} par ${b}.`,
+          `${a} ÷ ${b} = ${resultat}`,
+          "Le résultat indique combien vaut le quotient de cette division.",
+        ];
+
+      case "modulo":
+        if (Number.isInteger(a) && Number.isInteger(b) && b !== 0) {
+          const diviseur = Math.abs(b);
+          const quotient = Math.floor(a / diviseur);
+          const reste = ((a % diviseur) + diviseur) % diviseur;
+
+          return [
+            `On divise ${a} par ${diviseur}.`,
+            `${a} = ${diviseur} × ${quotient} + ${reste}`,
+            `Le reste de la division euclidienne est ${reste}.`,
+          ];
+        }
+      const [explications, setExplications] = useState([]);
+        return [
+          `On calcule le reste de ${a} modulo ${b}.`,
+          `${a} % ${b} = ${resultat}`,
+          "Le modulo représente le reste selon la convention de calcul utilisée.",
+        ];
+
+      default:
+        return ["Aucune explication disponible."];
+
+
+    }
+  }
+
+  
+
   async function effectuerCalcul(e) {
     e.preventDefault();
     setErreur("");
@@ -45,6 +104,14 @@ function App() {
       }
 
       setResultat(donnees.resultat);
+      setExplications(
+      expliquerCalcul(
+        Number(a),
+        Number(b),
+        operation,
+        donnees.resultat
+  )
+);
     } catch (error) {
       setErreur(
         error.message === "Failed to fetch"
@@ -139,13 +206,26 @@ function App() {
             </div>
           )}
 
+          
           {resultat !== null && (
             <div className="result-box" aria-live="polite">
               <span className="section-label">RÉSULTAT</span>
+
               <p className="result-number">{resultat}</p>
+
               <p className="result-description">
                 Ton calcul a été effectué avec succès.
               </p>
+
+              <div className="explanation">
+                <h3>Comprendre le calcul</h3>
+
+                <ol>
+                  {explications.map((etape, index) => (
+                    <li key={index}>{etape}</li>
+                  ))}
+                </ol>
+              </div>
             </div>
           )}
         </section>

@@ -295,3 +295,34 @@ footer {
     gap: 12px;
   }
 }
+
+
+.explanation {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e3e0ff;
+}
+
+.explanation h3 {
+  margin: 0 0 16px;
+  font: 700 17px "Manrope", sans-serif;
+  color: #172033;
+}
+
+.explanation ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.explanation li {
+  padding: 5px 0 5px 6px;
+  color: #525e75;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.explanation li::marker {
+  color: #635bdb;
+  font-weight: 700;
+}
+
