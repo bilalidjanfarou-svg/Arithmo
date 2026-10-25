@@ -326,3 +326,79 @@ footer {
   font-weight: 700;
 }
 
+
+.history {
+  max-width: 650px;
+  margin: 28px auto 40px;
+  padding: 28px;
+  background: white;
+  border: 1px solid #e9edf5;
+  border-radius: 18px;
+}
+
+.history-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.history-heading h2 {
+  margin: 8px 0 0;
+  font: 700 23px "Manrope", sans-serif;
+}
+
+.clear-history {
+  padding: 9px 13px;
+  color: #635bdb;
+  background: #f1f0ff;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.empty-history {
+  color: #778198;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px;
+  background: #fbfcff;
+  border: 1px solid #edf0f6;
+  border-radius: 11px;
+}
+
+.history-operation {
+  margin: 0 0 5px;
+  font-weight: 700;
+}
+
+.history-type {
+  color: #778198;
+  font-size: 12px;
+}
+
+.history-item strong {
+  color: #635bdb;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .history {
+    padding: 20px;
+  }
+}
+
+

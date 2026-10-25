@@ -9,7 +9,8 @@ function App() {
   const [resultat, setResultat] = useState(null);
   const [erreur, setErreur] = useState("");
   const [chargement, setChargement] = useState(false);
-
+  const [explications, setExplications] = useState([]);
+  const [historique, setHistorique] = useState([]);
   
   function expliquerCalcul(a, b, operation, resultat) {
     switch (operation) {
@@ -53,7 +54,7 @@ function App() {
             `Le reste de la division euclidienne est ${reste}.`,
           ];
         }
-      const [explications, setExplications] = useState([]);
+      
         return [
           `On calcule le reste de ${a} modulo ${b}.`,
           `${a} % ${b} = ${resultat}`,
@@ -104,6 +105,15 @@ function App() {
       }
 
       setResultat(donnees.resultat);
+      setHistorique((ancienHistorique) => [
+  {
+    a: Number(a),
+    b: Number(b),
+    operation,
+    resultat: donnees.resultat,
+  },
+  ...ancienHistorique,
+]);
       setExplications(
       expliquerCalcul(
         Number(a),
@@ -226,6 +236,59 @@ function App() {
                   ))}
                 </ol>
               </div>
+            </div>
+          )}
+        </section>
+
+        
+        <section className="history">
+          <div className="history-heading">
+            <div>
+              <span className="section-label">TES PRÉCÉDENTS CALCULS</span>
+              <h2>Historique</h2>
+            </div>
+
+            {historique.length > 0 && (
+              <button
+                className="clear-history"
+                type="button"
+                onClick={() => setHistorique([])}
+              >
+                Effacer
+              </button>
+            )}
+          </div>
+
+          {historique.length === 0 ? (
+            <p className="empty-history">
+              Tes calculs apparaîtront ici au fur et à mesure.
+            </p>
+          ) : (
+            <div className="history-list">
+              {historique.map((calcul, index) => {
+                const symboles = {
+                  addition: "+",
+                  soustraction: "−",
+                  multiplication: "×",
+                  division: "÷",
+                  modulo: "%",
+                };
+
+                return (
+                  <div className="history-item" key={index}>
+                    <div>
+                      <p className="history-operation">
+                        {calcul.a} {symboles[calcul.operation]} {calcul.b}
+                      </p>
+                      <span className="history-type">
+                        {calcul.operation}
+                      </span>
+                    </div>
+
+                    <strong>= {calcul.resultat}</strong>
+                  </div>
+                );
+              })}
             </div>
           )}
         </section>
