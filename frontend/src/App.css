@@ -1,0 +1,297 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #172033;
+  background: #f6f8fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.navbar {
+  min-height: 76px;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #e9edf5;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #172033;
+  font: 800 24px "Manrope", sans-serif;
+}
+
+.logo-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: white;
+  background: #635bdb;
+  border-radius: 11px;
+}
+
+.logo-point,
+.hero h1 span {
+  color: #635bdb;
+}
+
+.nav-label {
+  color: #778198;
+  font-size: 14px;
+}
+
+.main-content {
+  width: min(100% - 40px, 1040px);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 68px 0 36px;
+  text-align: center;
+}
+
+.eyebrow,
+.section-label {
+  color: #635bdb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  margin: 15px 0;
+  font: 800 clamp(34px, 5vw, 52px) "Manrope", sans-serif;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: #758096;
+  line-height: 1.8;
+}
+
+.calculator {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 32px;
+  background: white;
+  border: 1px solid #e9edf5;
+  border-radius: 22px;
+  box-shadow: 0 16px 50px rgb(30 43 80 / 6%);
+}
+
+.calculator-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.calculator-heading h2 {
+  margin: 7px 0 0;
+  font: 700 25px "Manrope", sans-serif;
+}
+
+.calculator-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background: #f0efff;
+  color: #635bdb;
+  font-size: 29px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.fields label,
+.operation-label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #39445a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 49px;
+  padding: 0 14px;
+  color: #172033;
+  background: #fbfcff;
+  border: 1px solid #dfe5ef;
+  border-radius: 10px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #635bdb;
+  box-shadow: 0 0 0 3px rgb(99 91 219 / 12%);
+}
+
+.operation-label {
+  margin-top: 22px;
+}
+
+.calculate-button {
+  width: 100%;
+  min-height: 51px;
+  margin-top: 24px;
+  border: 0;
+  border-radius: 11px;
+  background: #635bdb;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.calculate-button:hover {
+  background: #5148c5;
+  transform: translateY(-1px);
+}
+
+.calculate-button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.result-box {
+  margin-top: 24px;
+  padding: 22px;
+  background: #f1f0ff;
+  border: 1px solid #e3e0ff;
+  border-radius: 14px;
+}
+
+.result-number {
+  margin: 10px 0 5px;
+  color: #5148c5;
+  font: 800 34px "Manrope", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.result-description {
+  margin: 0;
+  color: #6d7590;
+  font-size: 13px;
+}
+
+.error-message {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  color: #a12b36;
+  background: #fff0f1;
+  font-size: 14px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 35px 0 55px;
+}
+
+.feature-card {
+  padding: 23px;
+  background: white;
+  border: 1px solid #e9edf5;
+  border-radius: 16px;
+}
+
+.feature-icon {
+  color: #635bdb;
+  font-size: 24px;
+}
+
+.feature-card h3 {
+  margin: 15px 0 8px;
+  font: 700 17px "Manrope", sans-serif;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #778198;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+footer {
+  padding: 24px;
+  text-align: center;
+  color: #8790a3;
+  border-top: 1px solid #e9edf5;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    min-height: 65px;
+    padding: 0 20px;
+  }
+
+  .nav-label {
+    max-width: 130px;
+    text-align: right;
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 48px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .calculator {
+    padding: 22px;
+  }
+
+  .fields,
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    gap: 12px;
+  }
+}
